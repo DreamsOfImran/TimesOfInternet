@@ -18,7 +18,7 @@ const FooterContent = () => {
             <List className={classes.list}>
               <ListItem className={classes.inlineBlock}>
                 <a
-                  href="https://www.creative-tim.com/?ref=mkpr-blog-post"
+                  href="https://twitter.com/DreamsOfImran"
                   target="_blank"
                   className={classes.block}
                   rel="noopener noreferrer"
@@ -28,7 +28,7 @@ const FooterContent = () => {
               </ListItem>
               <ListItem className={classes.inlineBlock}>
                 <a
-                  href="https://www.creative-tim.com/presentation?ref=mkpr-blog-post"
+                  href="https://facebook.com/DreamsOfImran"
                   target="_blank"
                   className={classes.block}
                   rel="noopener noreferrer"
@@ -38,7 +38,7 @@ const FooterContent = () => {
               </ListItem>
               <ListItem className={classes.inlineBlock}>
                 <a
-                  href="https://blog.creative-tim.com/?ref=mkpr-blog-post"
+                  href="https://instagram.com/dreamsofimran"
                   target="_blank"
                   className={classes.block}
                   rel="noopener noreferrer"
@@ -48,7 +48,7 @@ const FooterContent = () => {
               </ListItem>
               <ListItem className={classes.inlineBlock}>
                 <a
-                  href="https://www.creative-tim.com/license?ref=mkpr-blog-post"
+                  href="https://github.com/DreamsOfImran"
                   target="_blank"
                   className={classes.block}
                   rel="noopener noreferrer"
