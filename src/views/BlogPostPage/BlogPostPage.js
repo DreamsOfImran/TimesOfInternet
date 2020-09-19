@@ -1,7 +1,8 @@
-/*eslint-disable*/ import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 // nodejs library to set properties for components
 import alanBtn from "@alan-ai/alan-sdk-web";
 import wordToNumbers from "words-to-numbers";
+import { animateScroll } from "react-scroll";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 // core components
@@ -25,7 +26,8 @@ export default function BlogPostPage() {
 
   const alanKey = process.env.REACT_APP_ALAN_KEY;
 
-  useEffect(() => {
+  const askButtonHandler = () => {
+    animateScroll.scrollTo(850);
     alanBtn({
       key: alanKey,
       onCommand: ({ command, articles, number }) => {
@@ -33,7 +35,7 @@ export default function BlogPostPage() {
           setNewsArticles(articles);
           setActiveArticle(-1);
         } else if (command === "highlight") {
-          setActiveArticle((prevActiveArticle) => prevActiveArticle + 1);
+          setActiveArticle(prevActiveArticle => prevActiveArticle + 1);
         } else if (command === "open") {
           const parsedNumber =
             number.length > 2 ? wordToNumbers(number, { fuzzy: true }) : number;
@@ -46,9 +48,10 @@ export default function BlogPostPage() {
             alanBtn().playText("Opening...");
           }
         }
-      },
-    });
-  }, [alanKey]);
+      }
+    }).activate();
+  };
+
   const classes = useStyles();
   return (
     <div>
@@ -58,7 +61,7 @@ export default function BlogPostPage() {
         color="transparent"
         changeColorOnScroll={{
           height: 300,
-          color: "light",
+          color: "light"
         }}
       />
       <Parallax image={require("assets/img/bg4.jpg")}>
@@ -73,7 +76,7 @@ export default function BlogPostPage() {
                 do is,
               </h4>
               <br />
-              <Button color="danger" size="lg">
+              <Button color="danger" size="lg" onClick={askButtonHandler}>
                 <i className="fas fa-play" />
                 Just Ask
               </Button>
