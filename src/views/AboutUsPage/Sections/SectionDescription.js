@@ -22,11 +22,12 @@ export default function SectionDescription() {
           className={classNames(classes.mrAuto, classes.mlAuto)}
         >
           <h5 className={classes.description}>
-            This is the paragraph where you can write more details about your
-            product. Keep you user engaged by providing meaningful information.
-            Remember that by this time, the user is curious, otherwise he wouldn
-            {"'"}t scroll to get here. Add a button if you want the user to see
-            more.
+            Our product is made to help people get all the latest information from all
+            around the world. It is made using Alan-AI system , hence making it very easy 
+            to use. People of all ages can easily wrap their heads around this as all they 
+            have to do is , speak a sentence and rest of the work will be done by the product
+            automatically. It is made using new age technologies , is fast and works very 
+            efficiently.
           </h5>
         </GridItem>
       </GridContainer>

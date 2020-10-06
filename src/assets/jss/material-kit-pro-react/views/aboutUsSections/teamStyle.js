@@ -1,3 +1,4 @@
+import { Backdrop } from "@material-ui/core";
 import {
   mrAuto,
   mlAuto,
@@ -17,7 +18,7 @@ const teamStyle = {
   },
   cardTitle,
   cardDescription: {
-    color: grayColor[0]
+    color: grayColor[1]
   },
   team: {
     padding: "80px 0px"
@@ -34,6 +35,10 @@ const teamStyle = {
   },
   justifyContent: {
     justifyContent: "center!important"
+  },
+  backgroundColor:{
+    backgroundColor: "#dedede!important" , // background color
+    paddingTop: "20px"
   }
 };
 
