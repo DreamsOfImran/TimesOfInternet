@@ -10,7 +10,7 @@ const contactStyle = {
   title,
   mrAuto,
   mlAuto,
-  ...customSelectStyle,
+  ...customSelectStyle, 
   description: {
     ...description,
     marginBottom: "70px"
@@ -25,6 +25,13 @@ const contactStyle = {
   },
   aboutUs: {
     padding: "80px 0px"
+  },
+  backgroundColor:{
+    backgroundColor: "#dedede!important" , // background color
+    paddingTop: "20px"
+  },
+  buttonColor:{
+    backgroundColor: "#00acc1!important"
   }
 };
 

@@ -29,10 +29,10 @@ export default function SectionServices() {
             classes.textCenter
           )}
         >
-          <h2 className={classes.title}>We build awesome products</h2>
+          <h2 className={classes.title}>I build awesome products</h2>
           <h5 className={classes.description}>
-            This is the paragraph where you can write more details about your
-            product. Keep you user engaged by providing meaningful information.
+            I am pasionate about building efficient end to end products and this is one
+            such product which is aimed at helping people of all ages.
           </h5>
         </GridItem>
       </GridContainer>
@@ -43,9 +43,8 @@ export default function SectionServices() {
             description={
               <span>
                 <p>
-                  The moment you use Material Kit, you know you’ve never felt
-                  anything like it. With a single use, this powerfull UI Kit
-                  lets you do more than ever before.{" "}
+                  I try and design my products in such a way that give the best user experience.
+                  Most of my designs come from a sense of responsibility and practicality. 
                 </p>
                 <a href="#pablo">Find more...</a>
               </span>
@@ -60,9 +59,9 @@ export default function SectionServices() {
             description={
               <span>
                 <p>
-                  Divide details about your product or agency work into parts.
-                  Write a few lines about each one. A paragraph describing a
-                  feature will be enough.{" "}
+                  The process of development is my favorite and I put my hear and soul in developing my 
+                  products. It gives me a different satisfaction when I'm able to apply my learnings and 
+                  develop a good product.
                 </p>
                 <a href="#pablo">Find more...</a>
               </span>
@@ -73,13 +72,12 @@ export default function SectionServices() {
         </GridItem>
         <GridItem md={4} sm={4}>
           <InfoArea
-            title="3. Make Edits"
+            title="3. Debug"
             description={
               <span>
                 <p>
-                  Divide details about your product or agency work into parts.
-                  Write a few lines about each one. A paragraph describing a
-                  feature will be enough.{" "}
+                  Debugging is an important aspect of being a good developer. I test my code properly before 
+                  deploying and also dedicate a good amount of time for debugging and refactoring my code.
                 </p>
                 <a href="#pablo">Find more...</a>
               </span>

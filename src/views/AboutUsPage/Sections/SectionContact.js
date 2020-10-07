@@ -25,14 +25,14 @@ export default function SectionContact() {
   const classes = useStyles();
   return (
     <div className={classes.aboutUs}>
-      <GridContainer>
+      <GridContainer className = {classes.backgroundColor}>
         <GridItem
           md={8}
           sm={8}
           className={classNames(classes.mrAuto, classes.mlAuto)}
         >
           <h2 className={classNames(classes.title, classes.textCenter)}>
-            Want to work with us?
+            Want to collaborate with me?
           </h2>
           <h4 className={classNames(classes.description, classes.textCenter)}>
             Divide details about your product or agency work into parts. Write a

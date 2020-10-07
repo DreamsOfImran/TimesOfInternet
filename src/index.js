@@ -10,6 +10,7 @@ import UnderConstructionPage from "views/UnderConstructionPage/UnderConstruction
 // import AboutUsPage from "views/AboutUsPage/AboutUsPage.js";
 // import ContactUsPage from "views/ContactUsPage/ContactUsPage.js";
 import ErrorPage from "views/ErrorPage/ErrorPage.js";
+import AboutUsPage from "views/AboutUsPage/AboutUsPage";
 
 var hist = createBrowserHistory();
 
@@ -17,7 +18,7 @@ ReactDOM.render(
   <Router history={hist}>
     <Switch>
       <Route path="/" exact component={BlogPostPage} />
-      <Route path="/about" component={UnderConstructionPage} />
+      <Route path="/about" component={AboutUsPage} />
       <Route path="/contact" component={UnderConstructionPage} />
       <Route component={ErrorPage} />
     </Switch>

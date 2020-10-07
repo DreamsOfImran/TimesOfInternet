@@ -14,7 +14,6 @@ import HeaderLinks from "components/Header/HeaderLinks.js";
 import SectionDescription from "views/AboutUsPage/Sections/SectionDescription.js";
 import SectionTeam from "views/AboutUsPage/Sections/SectionTeam.js";
 import SectionServices from "views/AboutUsPage/Sections/SectionServices.js";
-import SectionOffice from "views/AboutUsPage/Sections/SectionOffice.js";
 import SectionContact from "views/AboutUsPage/Sections/SectionContact.js";
 
 import aboutUsStyle from "assets/jss/material-kit-pro-react/views/aboutUsStyle.js";
@@ -25,7 +24,7 @@ export default function AboutUsPage() {
   React.useEffect(() => {
     window.scrollTo(0, 0);
     document.body.scrollTop = 0;
-  });
+  }); 
   const classes = useStyles();
   return (
     <div>
@@ -35,10 +34,10 @@ export default function AboutUsPage() {
         color="transparent"
         changeColorOnScroll={{
           height: 300,
-          color: "info",
+          color: "white",
         }}
       />
-      <Parallax image={require("assets/img/bg9.jpg")} filter="dark" small>
+      <Parallax image={require("assets/img/bg13.jpg")} filter="dark" small>
         <div className={classes.container}>
           <GridContainer justify="center">
             <GridItem
@@ -51,7 +50,9 @@ export default function AboutUsPage() {
               )}
             >
               <h1 className={classes.title}>About Us</h1>
-              <h4>
+              <h4 style = {{
+                fontWeight: '500'
+              }}>
                 Meet the amazing team behind this project and find out more
                 about how we work.
               </h4>
@@ -64,7 +65,7 @@ export default function AboutUsPage() {
           <SectionDescription />
           <SectionTeam />
           <SectionServices />
-          <SectionOffice />
+          {/* <SectionOffice /> */}
           <SectionContact />
         </div>
       </div>
