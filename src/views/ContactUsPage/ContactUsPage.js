@@ -6,8 +6,9 @@ import {
   withScriptjs,
   withGoogleMap,
   GoogleMap,
-  Marker,
+  Marker
 } from "react-google-maps";
+import Iframe from "react-iframe";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 // @material-ui/icons
@@ -40,8 +41,8 @@ const CustomSkinMap = withScriptjs(
             stylers: [
               { saturation: 43 },
               { lightness: -11 },
-              { hue: "#0088ff" },
-            ],
+              { hue: "#0088ff" }
+            ]
           },
           {
             featureType: "road",
@@ -49,51 +50,51 @@ const CustomSkinMap = withScriptjs(
             stylers: [
               { hue: "#ff0000" },
               { saturation: -100 },
-              { lightness: 99 },
-            ],
+              { lightness: 99 }
+            ]
           },
           {
             featureType: "road",
             elementType: "geometry.stroke",
-            stylers: [{ color: "#808080" }, { lightness: 54 }],
+            stylers: [{ color: "#808080" }, { lightness: 54 }]
           },
           {
             featureType: "landscape.man_made",
             elementType: "geometry.fill",
-            stylers: [{ color: "#ece2d9" }],
+            stylers: [{ color: "#ece2d9" }]
           },
           {
             featureType: "poi.park",
             elementType: "geometry.fill",
-            stylers: [{ color: "#ccdca1" }],
+            stylers: [{ color: "#ccdca1" }]
           },
           {
             featureType: "road",
             elementType: "labels.text.fill",
-            stylers: [{ color: "#767676" }],
+            stylers: [{ color: "#767676" }]
           },
           {
             featureType: "road",
             elementType: "labels.text.stroke",
-            stylers: [{ color: "#ffffff" }],
+            stylers: [{ color: "#ffffff" }]
           },
           { featureType: "poi", stylers: [{ visibility: "off" }] },
           {
             featureType: "landscape.natural",
             elementType: "geometry.fill",
-            stylers: [{ visibility: "on" }, { color: "#b8cb93" }],
+            stylers: [{ visibility: "on" }, { color: "#b8cb93" }]
           },
           { featureType: "poi.park", stylers: [{ visibility: "on" }] },
           {
             featureType: "poi.sports_complex",
-            stylers: [{ visibility: "on" }],
+            stylers: [{ visibility: "on" }]
           },
           { featureType: "poi.medical", stylers: [{ visibility: "on" }] },
           {
             featureType: "poi.business",
-            stylers: [{ visibility: "simplified" }],
-          },
-        ],
+            stylers: [{ visibility: "simplified" }]
+          }
+        ]
       }}
     >
       <Marker position={{ lat: 44.43353, lng: 26.093928 }} />
@@ -117,20 +118,9 @@ export default function ContactUsPage() {
         color="dark"
       />
       <div className={classes.bigMap}>
-        <CustomSkinMap
-          googleMapURL="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"
-          loadingElement={<div style={{ height: `100%` }} />}
-          containerElement={
-            <div
-              style={{
-                height: `100%`,
-                borderRadius: "6px",
-                overflow: "hidden",
-              }}
-            />
-          }
-          mapElement={<div style={{ height: `100%` }} />}
-        />
+        <Iframe
+          className={classes.bigMap}
+          url="https://www.google.com/maps/embed/v1/place?key=AIzaSyBvuqxXx8Nuss5LFseAz2AIfSnivJmKAug&q=Marina Beach,Chennai,India&maptype=satellite"></Iframe>
       </div>
       <div className={classNames(classes.main, classes.mainRaised)}>
         <div className={classes.contactContent}>
@@ -149,32 +139,32 @@ export default function ContactUsPage() {
                     labelText="Your Name"
                     id="float"
                     formControlProps={{
-                      fullWidth: true,
+                      fullWidth: true
                     }}
                   />
                   <CustomInput
                     labelText="Email address"
                     id="float"
                     formControlProps={{
-                      fullWidth: true,
+                      fullWidth: true
                     }}
                   />
                   <CustomInput
                     labelText="Phone"
                     id="float"
                     formControlProps={{
-                      fullWidth: true,
+                      fullWidth: true
                     }}
                   />
                   <CustomInput
                     labelText="Your message"
                     id="float"
                     formControlProps={{
-                      fullWidth: true,
+                      fullWidth: true
                     }}
                     inputProps={{
                       multiline: true,
-                      rows: 6,
+                      rows: 6
                     }}
                   />
                   <div className={classes.textCenter}>
