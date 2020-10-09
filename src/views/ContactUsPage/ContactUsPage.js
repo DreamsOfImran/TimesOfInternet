@@ -18,17 +18,48 @@ import InfoArea from "components/InfoArea/InfoArea.js";
 import CustomInput from "components/CustomInput/CustomInput.js";
 import Button from "components/CustomButtons/Button.js";
 import FooterContent from "components/FooterContent/FooterContent";
-
+import './ContactUsPage.css'; 
+import * as emailjs from "emailjs-com";
 import contactUsStyle from "assets/jss/material-kit-pro-react/views/contactUsStyle.js";
 
 const useStyles = makeStyles(contactUsStyle);
 
+
+
 export default function ContactUsPage() {
+
+  
   React.useEffect(() => {
     window.scrollTo(0, 0);
     document.body.scrollTop = 0;
   });
   const classes = useStyles();
+
+
+
+function sendEmail(e){
+  e.preventDefault();
+
+
+    emailjs.sendForm("gmail",
+      "template_7wyi0py",
+      e.target,
+      "user_PD3dfcHmEBn6KzJWnAcNm"
+      )
+      .then((result) => {
+
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
+      });
+      e.target.reset();
+  }
+
+
+
+
+
+
   return (
     <div>
       <Header
@@ -54,46 +85,27 @@ export default function ContactUsPage() {
                   <br />
                   <br />
                 </p>
-                <form>
-                  <CustomInput
-                    labelText="Your Name"
-                    id="float"
-                    formControlProps={{
-                      fullWidth: true
-                    }}
-                  />
-                  <CustomInput
-                    labelText="Email address"
-                    id="float"
-                    formControlProps={{
-                      fullWidth: true
-                    }}
-                  />
-                  <CustomInput
-                    labelText="Phone"
-                    id="float"
-                    formControlProps={{
-                      fullWidth: true
-                    }}
-                  />
-                  <CustomInput
-                    labelText="Your message"
-                    id="float"
-                    formControlProps={{
-                      fullWidth: true
-                    }}
-                    inputProps={{
-                      multiline: true,
-                      rows: 6
-                    }}
-                  />
-                  <div className={classes.textCenter}>
-                    <Button color="primary" round>
-                      Contact us
-                    </Button>
-                  </div>
-                </form>
+
+         <form className="contact-form" onSubmit={sendEmail}>
+     
+      <label>Name</label>
+      <input type="text" name="name" />
+       <label>Phone number</label>
+      <input type="text" name="phone" />
+      <label>Email</label>
+      <input type="email" name="email" />
+      <label>Message</label>
+      <textarea name="message" />
+
+      <input type="submit" value="Send" />
+    </form>
               </GridItem>
+        
+
+
+
+
+
               <GridItem md={4} sm={4} className={classes.mlAuto}>
                 <InfoArea
                   className={classes.info}
@@ -140,3 +152,4 @@ export default function ContactUsPage() {
     </div>
   );
 }
+
