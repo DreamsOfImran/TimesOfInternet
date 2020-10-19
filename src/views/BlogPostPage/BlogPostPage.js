@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 // nodejs library to set properties for components
 import alanBtn from "@alan-ai/alan-sdk-web";
 import wordToNumbers from "words-to-numbers";
@@ -25,12 +25,10 @@ export default function BlogPostPage() {
   const [activeArticle, setActiveArticle] = useState(-1);
 
   const alanKey = process.env.REACT_APP_ALAN_KEY;
+  let alanBtnInstance;
 
-  const askButtonHandler = () => {
-    // Check is a instance of alanBtn is running
-    if (alanBtn().isActive()) return;
-    animateScroll.scrollTo(850);
-    alanBtn({
+  useEffect(() => {
+    alanBtnInstance = alanBtn({
       key: alanKey,
       onCommand: ({ command, articles, number }) => {
         if (command === "newHeadlines") {
@@ -44,14 +42,20 @@ export default function BlogPostPage() {
           const article = articles[parsedNumber - 1];
 
           if (parsedNumber > 20) {
-            alanBtn().playText("Please try that again.");
+            alanBtnInstance.playText("Please try that again.");
           } else if (article) {
             window.open(article.url, "_blank");
-            alanBtn().playText("Opening...");
+            alanBtnInstance.playText("Opening...");
           }
         }
       }
-    }).activate();
+    });
+  }, []);
+
+  const askButtonHandler = () => {
+    if (alanBtnInstance && alanBtnInstance.isActive()) return;
+    animateScroll.scrollTo(850);
+    alanBtnInstance.activate();
   };
 
   const classes = useStyles();
