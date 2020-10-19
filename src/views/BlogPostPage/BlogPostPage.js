@@ -27,6 +27,8 @@ export default function BlogPostPage() {
   const alanKey = process.env.REACT_APP_ALAN_KEY;
 
   const askButtonHandler = () => {
+    // Check is a instance of alanBtn is running
+    if (alanBtn().isActive()) return;
     animateScroll.scrollTo(850);
     alanBtn({
       key: alanKey,
