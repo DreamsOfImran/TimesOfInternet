@@ -1,5 +1,6 @@
 import React from "react";
 // nodejs library that concatenates classes
+import emailjs from "emailjs-com";
 import classNames from "classnames";
 // react components used to create a google map
 import Iframe from "react-iframe";
@@ -23,12 +24,49 @@ import contactUsStyle from "assets/jss/material-kit-pro-react/views/contactUsSty
 
 const useStyles = makeStyles(contactUsStyle);
 
+
+
 export default function ContactUsPage() {
   React.useEffect(() => {
     window.scrollTo(0, 0);
     document.body.scrollTop = 0;
   });
   const classes = useStyles();
+
+  let form__submit = e => {
+    e.preventDefault();
+    let name = document.getElementsByTagName("input")[0].value;
+    let email = document.getElementsByTagName("input")[1].value;
+    let phone = document.getElementsByTagName("input")[2].value;
+    let message = document.getElementsByTagName("textarea")[0].value;
+
+
+
+    emailjs
+      .send(
+        "gmail",
+        "template_tti5ggf",
+        {
+          name: name,
+          email: email,
+          phone: phone,
+          message: message
+        },
+        "user_Nt7a8y0jcNG9gbNEjcvXW"
+      )
+      .then(
+        result => {
+          console.log(result.text);
+        },
+        error => {
+          console.log(error.text);
+        }
+      );
+
+    e.target.reset();
+
+    console.log(name, email, phone, message);
+  };
   return (
     <div>
       <Header
@@ -54,13 +92,15 @@ export default function ContactUsPage() {
                   <br />
                   <br />
                 </p>
-                <form>
+                <form onSubmit={form__submit}>
                   <CustomInput
                     labelText="Your Name"
                     id="float"
                     formControlProps={{
                       fullWidth: true
                     }}
+                    type="text"
+                    required="true"
                   />
                   <CustomInput
                     labelText="Email address"
@@ -68,6 +108,8 @@ export default function ContactUsPage() {
                     formControlProps={{
                       fullWidth: true
                     }}
+                    type="email"
+                    required="true"
                   />
                   <CustomInput
                     labelText="Phone"
@@ -75,6 +117,7 @@ export default function ContactUsPage() {
                     formControlProps={{
                       fullWidth: true
                     }}
+                    type="number"
                   />
                   <CustomInput
                     labelText="Your message"
@@ -86,9 +129,11 @@ export default function ContactUsPage() {
                       multiline: true,
                       rows: 6
                     }}
+                    type="text"
+                    required="true"
                   />
                   <div className={classes.textCenter}>
-                    <Button color="primary" round>
+                    <Button type="submit" color="primary" round>
                       Contact us
                     </Button>
                   </div>

@@ -28,7 +28,9 @@ export default function CustomInput(props) {
     error,
     white,
     inputRootCustomClasses,
-    success
+    success,
+    type,
+    required
   } = props;
   const classes = useStyles();
   const labelClasses = classNames({
@@ -76,6 +78,8 @@ export default function CustomInput(props) {
           underline: underlineClasses
         }}
         id={id}
+        type={type}
+        required={required}
         {...inputProps}
       />
       {error ? (
